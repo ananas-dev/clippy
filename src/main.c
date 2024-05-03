@@ -205,9 +205,8 @@ bool try_magic(Slider slider, Square sq, Magic *entry) {
             return false;
         }
 
-        blockers |= ~(entry->mask);
-        blockers += 1ULL;
-        blockers &= entry->mask;
+        // Carry-Rippler's trick
+        blockers = (blockers - entry->mask) & entry->mask;
 
         if (blockers == BB_EMPTY) {
             return true;
