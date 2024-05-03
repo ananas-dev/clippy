@@ -42,6 +42,11 @@ typedef enum {
     DIR_NOWE = -7,
 } Direction;
 
+typedef enum {
+    SLIDER_ROOK,
+    SLIDER_BISHOP,
+} Slider;
+
 static inline int sq_file(Square sq) {
     return sq & 7;
 };
